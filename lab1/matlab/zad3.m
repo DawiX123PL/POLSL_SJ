@@ -61,8 +61,9 @@ function wyswietl_pomiary(pomiary)
     
     
     hold off
-
-
+    
+    grid on
+    saveas(gcf, "../zad3_plot.png");
     
 end
 

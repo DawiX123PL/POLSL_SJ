@@ -7,8 +7,8 @@ clc
 
 
 
-n = 5; % liczba probek
-m = 100; % liczba pomiarow
+n = 11; % liczba probek
+m = 16; % liczba pomiarow
 
 pomiary = randn(n,m)';
 
@@ -43,15 +43,7 @@ function wyswietl_pomiary(pomiary)
     N = 1:25;
 
     Table = interp1(RawTable(:,1), RawTable(:, 2:end), N', 'spline');
-    
-    % %       =            _
-    % % GLK = X  + A3(N) * S
-    % %       =            _
-    % % DLK = X  - A3(N) * S
-    % N = size(pomiary, 2);
-    % GLK = mean(pomiary,'all') + Table(N,1) * mean(std(pomiary,[],2));
-    % DLK = mean(pomiary,'all') - Table(N,1) * mean(std(pomiary,[],2));
-    
+        
     %               _
     % DLK = B3(N) * S    
     %               _
@@ -68,6 +60,9 @@ function wyswietl_pomiary(pomiary)
 
     ylim([(DLK - .2*(GLK - DLK)),  (GLK + .2*(GLK - DLK))] )
     
+    grid on
+    saveas(gcf, "../zad4_plot.png");
+
 end
 
 

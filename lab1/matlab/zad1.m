@@ -5,9 +5,9 @@ clc
 
 
 n = 5; % liczba probek
-m = 100; % liczba pomiarow
+m = 100; % liczba elementów
 
-pomiary = randn(n,m);
+pomiary = 1000 + randn(n,m) * 5; 
 
 pomiary'
 
@@ -20,24 +20,29 @@ function wyswietl_pomiary(pomiary)
     tiledlayout(3,1)
 
     nexttile
-    plot(pomiary,'o');
+    plot(pomiary,'*');
     title("surowe pomiary");
     xlabel("nr. próbki");
     ylabel("wartość pomiaru")
     xticks(1:size(pomiary,1));
+    grid on
 
     nexttile
-    plot(mean(pomiary,2));
+    plot(mean(pomiary,2),'*');
     title("Srednia");
     xlabel("nr. próbki");
     ylabel("średnia wartość pomiaru")
     xticks(1:size(pomiary,1));
+    grid on
 
     nexttile
-    plot(std(pomiary,[],2));
+    plot(std(pomiary,[],2),'*');
     title("odchylenie standardowe");
     xlabel("nr. próbki");
     xticks(1:size(pomiary,1));
+    grid on
+    
+    saveas(gcf, "../zad1_plot.png");
 
 end
 

@@ -18,6 +18,9 @@ function wyswietl_pomiary(pomiary)
     figure
     boxplot(pomiary')
 
+    grid on
+    saveas(gcf, "../zad2_plot.png");
+
 end
 
 
