@@ -20,6 +20,8 @@ hold on
 
 plot([-5:0.001:5], normpdf([-5:0.001:5]) );
 
+legend("Histogram","Teoretyczna funkcja gęstości")
+
 figure 
 
 plot([-5:0.001:5], normpdf([-5:0.001:5]) );
@@ -27,6 +29,9 @@ plot([-5:0.001:5], normpdf([-5:0.001:5]) );
 hold on 
 
 plot([-5:0.001:5], normcdf([-5:0.001:5]) );
+
+legend("Teoretyczna funkcja gęstości","Dystrybuanta teoretyczna ")
+
 
 
 
