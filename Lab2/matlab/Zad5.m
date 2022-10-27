@@ -20,7 +20,13 @@ hold on
 
 plot([-5:0.001:5], normpdf([-5:0.001:5]) );
 
+figure 
 
+plot([-5:0.001:5], normpdf([-5:0.001:5]) );
+
+hold on 
+
+plot([-5:0.001:5], normcdf([-5:0.001:5]) );
 
 
 
