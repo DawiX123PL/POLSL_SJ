@@ -5,26 +5,20 @@ clc
 
 N = 1000;
 
-X_norm = randn(N, 1);
-X_uniform = rand(N, 1);
+normalize = @(X) (X - mean(X)) / std(X);
+
+X_norm = normalize(randn(N, 1));
+X_uniform = normalize(rand(N, 1));
 
 X_norm_sort = sort(X_norm);
 X_uniform_sort = sort(X_uniform);
 
 
-Y = linspace(0,1,N);
+r = 1:N;
+Kr = (r - .5) / N;
+
+Y = norminv(Kr);
 
 
-
-figure
-hold on
-plot(X_norm_sort, Y); 
-plot(X_uniform_sort, Y);
-
-P = normcdf([-5:0.001:5]);
-plot([-5:0.001:5], P )
-
-legend("Rand. Norm.", "Rand. Uni.", "Rozkład normalny skumulowany");
-
-
+plot(X_uniform_sort, Y, '.')
 
