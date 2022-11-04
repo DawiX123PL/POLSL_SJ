@@ -3,10 +3,10 @@ close all
 clc
 
 
-%sigma = 0.0025
+sigma = 0.0025
 %sigma = 0.01
 %sigma = 0.25
-sigma = 1
+%sigma = 1
 
 
 f = @(x) 0.1 * (x.^4 - 20*x.^2 + 5*x) + sigma * randn(size(x));

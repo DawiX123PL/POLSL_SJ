@@ -59,6 +59,8 @@ ylabel('R_T [ohm]');
 legend('Dane z tabeli','Wyznaczona funkcja rezystancji')
 title('regresja liniowa')
 
+error_lin = sum( (termistor_resistance_lin(Temp) - Rt).^2 )
+
 %%
 % Punkt B
 
@@ -81,13 +83,16 @@ xlabel('Tempertura [K]');
 ylabel('R_T [ohm]');
 legend('Dane z tabeli','Wyznaczona funkcja rezystancji reg. nlin.')
 
+
+error_nlin = sum( (termistor_resistance_nlin(Temp) - Rt).^2 )
+
 %%
 % porownanie wszystkiego
 
 figure
 termistor_resistance_b = @(Temp1) A_nlin*exp(B_nlin./Temp1);
 
-plot(Temp, Rt); hold on
+plot(Temp, Rt, "o"); hold on
 plot(test_temp, termistor_resistance_lin(test_temp));
 plot(test_temp, termistor_resistance_nlin(test_temp));
 

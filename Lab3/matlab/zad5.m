@@ -17,9 +17,9 @@ y = @(h, b, c, x)  h * exp(  - (x-b).^2 / (2*c*c)   )
 
 s = @(h, b, c, x) y(h(1), b(1), c(1), x) + y(h(2), b(2), c(2), x);
 
-s_final = @(beta, x) s(beta(1:2), beta(3:4), beta(5:6), x)
 
 % beta = [ h1 h2 b1 b2 c1 c2 ]
+s_final = @(beta, x) s(beta(1:2), beta(3:4), beta(5:6), x)
 
 
 
