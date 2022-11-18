@@ -24,7 +24,7 @@ function [Z, Z_kryt, H] = TestIstotnosci (alpha, m, n, p_0, test)
     p = m / n;
     q_0 = 1 - p_0;
 
-    Z = p - p_0 / sqrt(p_0 * q_0 / n);
+    Z = (p - p_0) / sqrt(p_0 * q_0 / n);
 
 
     if test == "left"

@@ -29,15 +29,15 @@ function [Z, Z_kryt, H] = TestIstotnosci (alpha, X, mi_0, test)
 
     
     if test == "left"
-        Z_kryt  = norminv(alpha);
+        Z_kryt  = tinv(alpha, n-1);
         H_0 = Z_kryt < Z;
 
     elseif test == "right"
-        Z_kryt = norminv(1-alpha);
+        Z_kryt = tinv(1-alpha, n-1);
         H_0 = Z_kryt > Z;
 
     elseif test == "both"
-        Z_kryt = norminv([(alpha/2) (1-alpha/2)]);
+        Z_kryt = tinv([(alpha/2) (1-alpha/2)], n-1);
         H_0 = Z_kryt(1) < Z && Z < Z_kryt(2);
 
     end
@@ -51,8 +51,8 @@ function [Z, Z_kryt, H] = TestIstotnosci (alpha, X, mi_0, test)
 
     %  wykres
     figure
-    plot(-5:0.01:5, normpdf(-5:0.01:5)); hold on;
-    plot(Z, normpdf(Z), '*');
+    plot(-5:0.01:5, tpdf(-5:0.01:5, n-1)); hold on;
+    plot(Z, tpdf(Z, n-1), '*');
     xline(Z_kryt);
 
 end
